@@ -1,0 +1,301 @@
+.container {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.hero {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.heading {
+  font-size: 3rem;
+  color: #1e3a8a;
+  margin-bottom: 1rem;
+}
+
+.subheading {
+  font-size: 1.5rem;
+  color: #4b5563;
+  margin-bottom: 2rem;
+}
+
+.buttonGroup {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.getStartedBtn {
+  padding: 0.75rem 1.5rem;
+  background: #1e40af;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.getStartedBtn:hover {
+  background: #1e3a8a;
+  transform: scale(1.05);
+}
+
+.signInBtn {
+  padding: 0.75rem 1.5rem;
+  background: #f3f4f6;
+  color: #1e40af;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.signInBtn:hover {
+  background: #e5e7eb;
+  transform: scale(1.05);
+}
+
+.signUpBtn {
+  padding: 0.75rem 1.5rem;
+  background: #1e40af;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.signUpBtn:hover {
+  background: #1e3a8a;
+  transform: scale(1.05);
+}
+
+.slider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 3rem;
+}
+
+.arrowBtn {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 0 1rem;
+}
+
+.slideContainer {
+  position: relative;
+  width: 100%;
+  height: 100px;
+}
+
+.slide {
+  position: absolute;
+  width: 100%;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  text-align: center;
+}
+
+.slide.active {
+  opacity: 1;
+}
+
+.emoji {
+  font-size: 4rem;
+}
+
+.caption {
+  font-size: 1.2rem;
+  color: #4b5563;
+}
+
+.provides {
+  text-align: center;
+}
+
+.sectionTitle {
+  font-size: 2rem;
+  color: #1e3a8a;
+  margin-bottom: 2rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  text-align: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.cardEmoji {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.cardTitle {
+  font-size: 1.5rem;
+  color: #1e3a8a;
+  margin-bottom: 0.5rem;
+}
+
+.cardDescription {
+  font-size: 1rem;
+  color: #4b5563;
+}
+
+@media (max-width: 600px) {
+  .heading {
+    font-size: 2rem;
+  }
+
+  .subheading {
+    font-size: 1.2rem;
+  }
+
+  .getStartedBtn,
+  .signInBtn,
+  .signUpBtn {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+  }
+
+  .emoji {
+    font-size: 3rem;
+  }
+
+  .caption {
+    font-size: 1rem;
+  }
+
+  .sectionTitle {
+    font-size: 1.5rem;
+  }
+}
+/* Add these styles to the existing CSS */
+.introduction {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 3rem;
+}
+
+.introContent {
+  flex: 1;
+  padding-right: 2rem;
+}
+
+.introTitle {
+  font-size: 2rem;
+  color: #1e3a8a;
+  margin-bottom: 1rem;
+}
+
+.introText {
+  font-size: 1.2rem;
+  color: #4b5563;
+}
+
+.introImage {
+  flex: 1;
+  text-align: center;
+}
+
+.introImage img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+@media (max-width: 768px) {
+  .introduction {
+    flex-direction: column;
+  }
+
+  .introContent {
+    padding-right: 0;
+    margin-bottom: 2rem;
+  }
+}
+.backgroundShapes {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  opacity: 0.3;
+}
+
+.movingStar {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.scrollingElements {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.scrollingElement {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: #ffcc00;
+  border-radius: 50%;
+}
+
+.slide {
+  position: absolute;
+  width: 100%;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  text-align: center;
+}
+
+.slide.active {
+  opacity: 1;
+}
+
+.greeting {
+  text-align: center;
+  margin-top: 2rem;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.greeting h2 {
+  color: #2d3748;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.greeting p {
+  color: #4a5568;
+  font-size: 1.1rem;
+}
