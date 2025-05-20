@@ -1,7 +1,4 @@
-
 //
-
-
 
 import React, { useState, useEffect } from 'react';
 import { SignInButton, SignUpButton, useUser } from '@clerk/clerk-react';
@@ -21,10 +18,26 @@ const LandingPage = () => {
   ];
 
   const provides = [
-    { emoji: '🎨', title: 'Art Classes', description: 'Encourage creativity through various art forms.' },
-    { emoji: '📚', title: 'Educational Support', description: 'Tutoring and homework help for all subjects.' },
-    { emoji: '🤝', title: 'Mentorship', description: 'Guidance from experienced mentors.' },
-    { emoji: '🏃', title: 'Physical Activities', description: 'Sports and games for physical development.' },
+    {
+      emoji: '🎨',
+      title: 'Computer Skills',
+      description: 'Encourage creativity through various art forms.',
+    },
+    {
+      emoji: '📚',
+      title: 'English Communication',
+      description: 'Tutoring and homework help for all subjects.',
+    },
+    {
+      emoji: '🤝',
+      title: 'Mentorship',
+      description: 'Guidance from experienced mentors.',
+    },
+    {
+      emoji: '🏃',
+      title: 'Physical Activities',
+      description: 'Sports and games for physical development.',
+    },
   ];
 
   // ... (keep all the existing useEffect hooks and animations the same)
@@ -75,13 +88,24 @@ const LandingPage = () => {
         scrub: true,
       },
     });
-    tl.to(`.${styles.movingStar}`, { x: '70%', y: '50%', duration: 1 })
-      .to(`.${styles.movingStar}`, { x: '50%', y: '80%', duration: 1 });
+    tl.to(`.${styles.movingStar}`, { x: '70%', y: '50%', duration: 1 }).to(
+      `.${styles.movingStar}`,
+      { x: '50%', y: '80%', duration: 1 }
+    );
 
     // Scrolling elements (left to right)
-    gsap.set(`.${styles.scrollingElement}:nth-child(1)`, { top: '10%', left: '10%' });
-    gsap.set(`.${styles.scrollingElement}:nth-child(2)`, { top: '50%', left: '20%' });
-    gsap.set(`.${styles.scrollingElement}:nth-child(3)`, { top: '80%', left: '30%' });
+    gsap.set(`.${styles.scrollingElement}:nth-child(1)`, {
+      top: '10%',
+      left: '10%',
+    });
+    gsap.set(`.${styles.scrollingElement}:nth-child(2)`, {
+      top: '50%',
+      left: '20%',
+    });
+    gsap.set(`.${styles.scrollingElement}:nth-child(3)`, {
+      top: '80%',
+      left: '30%',
+    });
     gsap.to(`.${styles.scrollingElement}`, {
       scrollTrigger: {
         trigger: `.${styles.container}`,
@@ -96,84 +120,85 @@ const LandingPage = () => {
     // Hero section animation
     gsap.from(`.${styles.heading}`, {
       y: -50,
-        opacity: 0,
-        duration: 1,
-        ease: 'power2.out',
-      });
-      gsap.from(`.${styles.subheading}`, {
-        y: 50,
-        opacity: 0,
-        duration: 1,
-        delay: 0.5,
-        ease: 'power2.out',
-      });
-      gsap.from(`.${styles.buttonGroup} button`, {
-        scale: 0.8,
-        opacity: 0,
-        duration: 0.5,
-        stagger: 0.2,
-        ease: 'back.out(1.7)',
-      });
+      opacity: 0,
+      duration: 1,
+      ease: 'power2.out',
+    });
+    gsap.from(`.${styles.subheading}`, {
+      y: 50,
+      opacity: 0,
+      duration: 1,
+      delay: 0.5,
+      ease: 'power2.out',
+    });
+    gsap.from(`.${styles.buttonGroup} button`, {
+      scale: 0.8,
+      opacity: 0,
+      duration: 0.5,
+      stagger: 0.2,
+      ease: 'back.out(1.7)',
+    });
 
-      // Introduction section animations
-      gsap.from(`.${styles.introTitle}`, {
-        scrollTrigger: {
-          trigger: `.${styles.introduction}`,
-          start: 'top 80%',
-        },
-        x: -100,
-        opacity: 0,
-        duration: 1,
-        ease: 'power2.out',
-      });
-      gsap.from(`.${styles.introText}`, {
-        scrollTrigger: {
-          trigger: `.${styles.introduction}`,
-          start: 'top 80%',
-        },
-        x: 100,
-        opacity: 0,
-        duration: 1,
-        delay: 0.5,
-        ease: 'power2.out',
-      });
-      gsap.from(`.${styles.introImage} img`, {
-        scrollTrigger: {
-          trigger: `.${styles.introduction}`,
-          start: 'top 80%',
-        },
-        x: 200,
-        opacity: 0,
-        duration: 1,
-        ease: 'power2.out',
-      });
+    // Introduction section animations
+    gsap.from(`.${styles.introTitle}`, {
+      scrollTrigger: {
+        trigger: `.${styles.introduction}`,
+        start: 'top 80%',
+      },
+      x: -100,
+      opacity: 0,
+      duration: 1,
+      ease: 'power2.out',
+    });
+    gsap.from(`.${styles.introText}`, {
+      scrollTrigger: {
+        trigger: `.${styles.introduction}`,
+        start: 'top 80%',
+      },
+      x: 100,
+      opacity: 0,
+      duration: 1,
+      delay: 0.5,
+      ease: 'power2.out',
+    });
+    gsap.from(`.${styles.introImage} img`, {
+      scrollTrigger: {
+        trigger: `.${styles.introduction}`,
+        start: 'top 80%',
+      },
+      x: 200,
+      opacity: 0,
+      duration: 1,
+      ease: 'power2.out',
+    });
 
-      // Provides section animations
-      gsap.from(`.${styles.sectionTitle}`, {
-        scrollTrigger: {
-          trigger: `.${styles.provides}`,
-          start: 'top 80%',
-        },
-        y: -50,
-        opacity: 0,
-        duration: 1,
-        ease: 'power2.out',
-      });
-      gsap.from('.provideCard', {
-        scrollTrigger: {
-          trigger: `.${styles.provides}`,
-          start: 'top 80%',
-        },
-        scale: 0.8,
-        opacity: 0,
-        duration: 0.5,
-        stagger: 0.2,
-        ease: 'back.out(1.7)',
-      });
-    }, []);
+    // Provides section animations
+    gsap.from(`.${styles.sectionTitle}`, {
+      scrollTrigger: {
+        trigger: `.${styles.provides}`,
+        start: 'top 80%',
+      },
+      y: -50,
+      opacity: 0,
+      duration: 1,
+      ease: 'power2.out',
+    });
+    gsap.from('.provideCard', {
+      scrollTrigger: {
+        trigger: `.${styles.provides}`,
+        start: 'top 80%',
+      },
+      scale: 0.8,
+      opacity: 0,
+      duration: 0.5,
+      stagger: 0.2,
+      ease: 'back.out(1.7)',
+    });
+  }, []);
 
   const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % slides.length);
-  const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+  const prevSlide = () =>
+    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
   return (
     <div className={styles.container}>
       {/* Background elements remain unchanged */}
@@ -183,7 +208,10 @@ const LandingPage = () => {
         <circle cx="50%" cy="70%" r="40" fill="#ff6699" />
       </svg>
       <svg className={styles.movingStar} width="50" height="50">
-        <polygon points="25,5 30,20 45,20 35,30 40,45 25,35 10,45 15,30 5,20 20,20" fill="#ffcc00" />
+        <polygon
+          points="25,5 30,20 45,20 35,30 40,45 25,35 10,45 15,30 5,20 20,20"
+          fill="#ffcc00"
+        />
       </svg>
       <div className={styles.scrollingElements}>
         <div className={styles.scrollingElement}></div>
@@ -193,9 +221,11 @@ const LandingPage = () => {
 
       {/* Updated Hero Section */}
       <div className={styles.hero}>
-        <h1 className={styles.heading}>Welcome to OrphanAge!</h1>
-        <p className={styles.subheading}>A place where kids can learn, grow, and thrive.</p>
-        
+        <h1 className={styles.heading}>Welcome Mind Bloomers !</h1>
+        <p className={styles.subheading}>
+          A place where kids can learn, grow, and thrive.
+        </p>
+
         {isSignedIn ? (
           <div className={styles.greeting}>
             <h2>
@@ -220,28 +250,35 @@ const LandingPage = () => {
 
       {/* Rest of the components remain the same */}
       <div className={styles.slider}>
-        <button onClick={prevSlide} className={styles.arrowBtn}>←</button>
+        <button onClick={prevSlide} className={styles.arrowBtn}>
+          ←
+        </button>
         <div className={styles.slideContainer}>
           {slides.map((slide, index) => (
             <div
               key={index}
-              className={`${styles.slide} ${index === currentSlide ? styles.active : ''}`}
+              className={`${styles.slide} ${
+                index === currentSlide ? styles.active : ''
+              }`}
             >
               <span className={styles.emoji}>{slide.emoji}</span>
               <p className={styles.caption}>{slide.caption}</p>
             </div>
           ))}
         </div>
-        <button onClick={nextSlide} className={styles.arrowBtn}>→</button>
+        <button onClick={nextSlide} className={styles.arrowBtn}>
+          →
+        </button>
       </div>
 
       <div className={styles.introduction}>
         <div className={styles.introContent}>
-          <h2 className={styles.introTitle}>About OrphanAge</h2>
+          <h2 className={styles.introTitle}>About Us</h2>
           <p className={styles.introText}>
-            OrphanAge is dedicated to providing a nurturing environment for children to explore their potential. 
-            Through a variety of educational programs, creative activities, and community support, 
-            we aim to empower every child to achieve their dreams.
+            Mind Bloomers is dedicated to providing a nurturing environment for
+            children to explore their potential. Through a variety of
+            educational programs and creat activities aim to empower every child
+            to achieve their dreams.
           </p>
         </div>
         <div className={styles.introImage}>

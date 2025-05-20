@@ -1,6 +1,15 @@
 import React, { useEffect } from 'react';
 import { Routes, Route, NavLink } from 'react-router-dom';
-import { SignedIn, SignedOut, SignInButton, SignUpButton, UserButton, SignIn, SignUp, useUser } from '@clerk/clerk-react';
+import {
+  SignedIn,
+  SignedOut,
+  SignInButton,
+  SignUpButton,
+  UserButton,
+  SignIn,
+  SignUp,
+  useUser,
+} from '@clerk/clerk-react';
 import ProtectedRoute from './components/ProtectedRoute';
 import TeacherLayout from './layouts/TeacherLayout';
 import StudentLayout from './layouts/StudentLayout';
@@ -14,7 +23,7 @@ import QuizUpload from './pages/QuizUpload';
 import NoticeForm from './pages/NoticeForm';
 import StudentNotices from './pages/StudentNotices.jsx';
 import StudentQuizzes from './pages/StudentQuizzes.jsx';
-
+import { Toaster } from 'react-hot-toast';
 
 const App = () => {
   const { user, isLoaded } = useUser();
@@ -32,28 +41,44 @@ const App = () => {
   return (
     <>
       <header style={styles.header}>
+        <Toaster position="top center" />
         <div style={styles.headerContent}>
           <NavLink to="/" style={styles.logo}>
-            LMS
+            Mind Bloomers
           </NavLink>
           <nav style={styles.nav}>
             <SignedIn>
               <div style={styles.linkGroup}>
                 {role.includes('teacher') && (
                   <>
-                    <NavLink to="/teacher/my-lectures" style={styles.link}>My Lectures</NavLink>
-                    <NavLink to="/teacher/upload" style={styles.link}>Upload</NavLink>
-                    <NavLink to="/teacher/videos" style={styles.link}>YouTube</NavLink>
-                    <NavLink to="/teacher/notices" style={styles.link}>Notices</NavLink>
-                    <NavLink to="/teacher/quizzes" style={styles.link}>Quizzes</NavLink>
+                    <NavLink to="/teacher/my-lectures" style={styles.link}>
+                      My Lectures
+                    </NavLink>
+                    <NavLink to="/teacher/upload" style={styles.link}>
+                      Upload
+                    </NavLink>
+                    <NavLink to="/teacher/videos" style={styles.link}>
+                      YouTube
+                    </NavLink>
+                    <NavLink to="/teacher/notices" style={styles.link}>
+                      Notices
+                    </NavLink>
+                    <NavLink to="/teacher/quizzes" style={styles.link}>
+                      Quizzes
+                    </NavLink>
                   </>
                 )}
                 {role.includes('student') && (
                   <>
-                    <NavLink to="/student/videos" style={styles.link}>Videos</NavLink>
-                    <NavLink to="/student/notices" style={styles.link}>Notices</NavLink>
-                    <NavLink to="/student/quizzes" style={styles.link}>Quizzes</NavLink>
-                  
+                    <NavLink to="/student/videos" style={styles.link}>
+                      Videos
+                    </NavLink>
+                    <NavLink to="/student/notices" style={styles.link}>
+                      Notices
+                    </NavLink>
+                    <NavLink to="/student/quizzes" style={styles.link}>
+                      Quizzes
+                    </NavLink>
                   </>
                 )}
                 <UserButton />
@@ -74,7 +99,8 @@ const App = () => {
       </header>
       <main style={styles.main}>
         <Routes>
-          <Route path="/" element={<LandingPage />} /> {/* Updated to LandingPage */}
+          <Route path="/" element={<LandingPage />} />{' '}
+          {/* Updated to LandingPage */}
           <Route path="/unauthorized" element={<Unauthorized />} />
           <Route
             path="/teacher"
@@ -101,10 +127,15 @@ const App = () => {
             <Route path="videos" element={<StudentVideos />} />
             <Route path="notices" element={<StudentNotices />} />
             <Route path="quizzes" element={<StudentQuizzes />} />
-          
           </Route>
-          <Route path="/sign-in/*" element={<SignIn routing="path" path="/sign-in" />} />
-          <Route path="/sign-up/*" element={<SignUp routing="path" path="/sign-up" />} />
+          <Route
+            path="/sign-in/*"
+            element={<SignIn routing="path" path="/sign-in" />}
+          />
+          <Route
+            path="/sign-up/*"
+            element={<SignUp routing="path" path="/sign-up" />}
+          />
         </Routes>
       </main>
     </>

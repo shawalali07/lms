@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux';
 import { addVideo } from '../slices/videoSlice';
 import { useUser } from '@clerk/clerk-react';
 import db from '../utils/db';
+import toast from 'react-hot-toast';
 
 const TeacherVideos = () => {
   const { register, handleSubmit, reset } = useForm();
@@ -29,6 +30,7 @@ const TeacherVideos = () => {
           type: 'youtube',
         })
       );
+      toast.success('Lecture uploaded!');
       reset();
     } catch (error) {
       console.error('Error adding video:', error);
